@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Document</title>
+</head>
+<body>
+<!--  -->
+{% if name %}
+<h1>Hello {{ name }}</h1>
+{% else %}
+<h1>Hello World</h1>
+{% endif %}
+<!--  -->
+{% if queryset %}
+<ul>
+    {% for tagged_items in queryset %}
+    <li>
+        <span>{{ tagged_items.tag }}</span>
+        <span>{{ tagged_items.content_type }}</span>
+        <span>{{ tagged_items.content_object }}</span>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+<!--  -->
+{% if result %}
+<p>{{ result }}</p>
+{% endif %}
+<!--  -->
+
+<div>
+    {% if orders %}
+    <ul>
+        {% for order in orders %}
+        <li>
+          <span>{{ order.placed_at }}</span
+          ><span>{{ order.customer.email }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<!--  -->
+{% if products %}
+<div>
+    {% for product in products %}
+    <li>{{ product.title }} - {{ product.collection.title }}</li>
+    {% endfor %}
+</div>
+{% endif %}
+<!--  -->
+<div>
+    {% if products_objects_defer %}
+    <ul>
+        {% for product in products_objects_defer %}
+        <li>
+            <span>{{ product.title }}</span>
+            <span>{{ product.unit_price }}</span>
+            <span>{{ product.collection_id }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<!--  -->
+<div>
+    {% if products_objects_only %}
+    <ul>
+        {% for product in products_objects_only %}
+        <li>
+            <span>{{ product.title }}</span>
+            <span>{{ product.description }}</span>
+            <span>{{ product.unit_price }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<!--  -->
+<div>
+    <ul>
+        {% if product %}
+        <li>{{ product.title }}</li>
+        <li>{{ product.description }}</li>
+        <li>{{ product.unit_price }}</li>
+        <li>{{ product.inventory }}</li>
+        <li>{{ product.last_update }}</li>
+        <li>{{ product.collection_id }}</li>
+        {% endif %}
+    </ul>
+</div>
+
+<!--  -->
+<div>
+    {% if products_list %}
+    <ul>
+        {% for product in products_list %}
+        <li>
+            <span>{{ product.title }}</span>
+            <span>{{ product.description }}</span>
+            <span>{{ product.unit_price }}</span>
+            <span>{{ product.inventory }}</span>
+            <span>{{ product.last_update }}</span>
+            <span>{{ product.collection_id }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<!--  -->
+<div>
+    {% if customers_list %}
+    <ul>
+        {% for customer in customers_list %}
+        <li>
+            <span>{{ customer }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<!--  -->
+</body>
+</html>
